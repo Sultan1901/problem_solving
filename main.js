@@ -1,8 +1,16 @@
-let num = 0 
-for (let n = 0; n < 6; n++) {
-    if (n = 5  ){return n === 'buzz'}
-    else if
 
-    
-    
-}
+let fizzBuzz = (n) => {
+    for (let i = 0; i <= n; i++) {
+      if (i % 3 == 0 && i % 5 == 0) {
+        console.log("fizzBuzz");
+      } else if (i % 3 == 0) {
+        console.log("fizz");
+      } else if (i % 5 == 0) {
+        console.log("buzz");
+      } else {
+        console.log(i);
+      }
+    }
+  };
+  
+  fizzBuzz(9);

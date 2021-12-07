@@ -9,14 +9,11 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  const narr  = []
-   arr.forEach((item)=>{
-     narr.push(item + 1)
-
-    
-  })
-  return narr
-  
+  const narr = [];
+  arr.forEach((item) => {
+    narr.push(item + 1);
+  });
+  return narr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,13 +25,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  
-  let arr2 = []
-  arr.forEach((e)=>{
-    arr2.push(e +'!');
-  })
-  return arr2
- 
+  let arr2 = [];
+  arr.forEach((e) => {
+    arr2.push(e + "!");
+  });
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,12 +41,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-   
-  let arr3 = []
-  arr.forEach((e)=>{
-  arr3.push(e.toUpperCase());
-  })
-  return arr3
+  let arr3 = [];
+  arr.forEach((e) => {
+    arr3.push(e.toUpperCase());
+  });
+  return arr3;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,11 +59,17 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  let str = word.toUpperCase() + "!"
+return str
 };
 
 const speaker = (words, cb) => {
-  // Solution code here...
+ let arr5 = []
+ words.forEach((e)=>{
+   
+  arr5.push(cb (e))
+ })
+ return arr5
 };
 
 /* ------------------------------------------------------------------------------------------------

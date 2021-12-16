@@ -5,7 +5,8 @@ CHALLENGE 1 - Review
 
 Write a function named addAnimal that takes in array of animals (strings) and some callback function. 
 
-This function should first create a new array. Then iterate over the input array and modify each value based on the callback function provided.
+This function should first create a new array. Then iterate over the input array and modify each value based on
+ the callback function provided.
 
 Push each updated animal string into the new array. Return the new array. 
 
@@ -22,13 +23,21 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  // Solution code here...
+  let nar = []
+  arr.forEach((e)=>{
+   if (callback === lower) {
+     nar.push(lower(e));
+   }
+   else if (callback === upper) {nar.push(upper(e));}
+  })
+ return nar
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function called sortNames that takes an array of names and sorts them alphabetically. Capital letters should come before lowercase letters.
+Write a function called sortNames that takes an array of names and sorts them alphabetically. 
+Capital letters should come before lowercase letters.
 
 For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */

@@ -142,17 +142,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  arr.forEach((e)=>{
-    for
-    if(e / 3){return "Fizz"}
-    else if (e / 5) {
-      return "Buzz";
-    }
-    else if (e / 3 && 5) {
-      return "Fizz Buzz"
-    }
+  const ar2 = []
+  arr.forEach(e => {if (e % 3 == 0 && e % 5 == 0) {
+    ar2.push("Fizz Buzz");
+    ;
+    } else if (e % 5 == 0) {
+      ar2.push("Buzz");
+    } else if (e % 3 == 0) {
+      ar2.push("Fizz");
+    } else ar2.push(e);
   })
-};
+  return ar2;
+  };
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS

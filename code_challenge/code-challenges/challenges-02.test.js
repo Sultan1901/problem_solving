@@ -5,13 +5,12 @@ CHALLENGE 1 - Review
 Write a function named raisedToTheThird that takes in an array of numbers and returns a new array of each of those numbers raised to the 3rd power (hint: look up Math.pow()). Use forEach to solve this problem.
 
 ------------------------------------------------------------------------------------------------ */
-// Need to fix
 const raisedToTheThird = (arr) => {
   let pow = [];
   arr.forEach((e) => {
-    for (let index = 0; index < arr.length; index++) {
-      pow.push(e.Math.pow(3));
-    }
+   
+      pow.push(Math.pow(e,3));
+    
   });
   return pow;
 };
@@ -22,17 +21,17 @@ CHALLENGE 2
 Write a function that appends ' The end.' to a string, and returns the modified string. The original source string should not be modified.
 
 ------------------------------------------------------------------------------------------------ */
-//Need to fix
 const appendTheEnd = (str) => {
-  let New = "";
-  str.join(" The end.");
+  let New = str + " The end."
+  ;
   return New;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function that accepts an array and copies the first element to the end of the array. The change should be reflected in the source array that was passed in to the function. That is, the function should modify the array 'in place'.
+Write a function that accepts an array and copies the first element to the end of the array. The change should be reflected
+ in the source array that was passed in to the function. That is, the function should modify the array 'in place'.
 
 Do not use a return statement.
 
@@ -41,11 +40,10 @@ const a = [1, 2, 3];
 appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
-// Need to fix
 const appendFirstToLast = (arr) => {
-  arr.map((e) => {
-    arr.push(e[0]);
-  });
+  
+    arr.push(arr[0])
+  ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,9 +82,9 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 // need to fix
 const setStatusAsAuthor = (people) => {
-  for (let i = 0; i < people.length; i++) {
-    i.isAuthor = true;
-  }
+  people.forEach((e)=>{
+    e.isAuthor = true;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -188,7 +188,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-	// Solution code here...
+	let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].spouse) total += 1;
+    if (arr[i].name) total += 1;
+    total += arr[i].children.length;
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -203,7 +209,11 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
 	const sizes = [];
-	// Solution code here...
+	arr.forEach((e)=>{
+		sizes.push({house :item.house,members :item.children.length + 1})
+
+	})
+	return sizes
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -226,7 +236,16 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
 	const survivors = [];
-	// Solution code here...
+  let wife = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].spouse && !deceasedSpouses.includes(arr[i].spouse)) wife = 1;
+    survivors.push({
+      house: arr[i].house,
+      members: arr[i].children.length + wife + 1,
+    });
+    wife = 0;
+  }
+  return survivors;
 };
 
 /* ------------------------------------------------------------------------------------------------

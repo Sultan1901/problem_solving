@@ -7,27 +7,38 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
-  // Solution code here...
+  let nn = string.replace( /[0]/g , 'zero')
+  return nn
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply incremented by 1. 
+Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply 
+incremented by 1. 
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
+  const narr = [];
+  arr.forEach((item) => {
+    narr.push(item + 1);
+  });
+  return narr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named addQuestion that, given an array of strings, uses map to return a new array containing each string followed by a question mark character.
+Write a function named addQuestion that, given an array of strings, uses map to return a new array
+ containing each string followed by a question mark character.
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
-  // Solution code here...
+ return arr.map((e)=>{
+  return  e + '?'
+
+ })
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -41,7 +52,10 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  for (let i = 0;i<arr.length;i++){
+    arr[i]=Math.pow(2,arr[i])
+  }
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +65,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach((element) => {
+    newArr.push(Math.pow(2, element));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +79,11 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  let arr2 = [];
+  arr.map((e)=>{
+    arr2.push(Math.pow(2,e))
+  })
+  return arr2
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +97,11 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  let arr2 = [];
+  arr.forEach((e)=>{
+    arr2.push(e.charCodeAt(0));
+  })
+  return arr2
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +115,11 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  return arr.map((e)=>{
+    if (typeof e =="string") return N/A
+    else if ( e % 2) return "odd"
+    return "even"
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +165,11 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  let arr5 = [];
+  arr.map((e)=>{
+    arr5.push(e.ability.name)
+  })
+  return arr5
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -182,7 +216,11 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  let arr6 = []
+  arr.forEach((e)=>{
+    arr6.push({name:e.stats.name ,total:e.effort+e.baseStat})
+  })
+  return arr6
 };
 
 /* ------------------------------------------------------------------------------------------------

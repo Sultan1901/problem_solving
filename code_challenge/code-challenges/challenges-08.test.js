@@ -8,49 +8,63 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str) {
-  // Solution code here...
+  return str.slice(-10).split("")
 }
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named typeNum that, given an array as input, uses filter to return an array containing only the numbers.
+Write a function named typeNum that, given an array as input,
+ uses filter to return an array containing only the numbers.
 
 For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
-  // Solution code here...
+  return arr.filter((e)=>{
+    return typeof e != 'string'
+  })
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named containsAnd that, given an array of strings as input, uses filter to return an array containing only strings that contain 'and' within the string.
+Write a function named containsAnd that, given an array of strings as input, 
+uses filter to return an array containing only strings that contain 'and' within the 
+string.
 
 For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
 const containsAnd = (arr) => {
-  // Solution code here...
+  let filt =  arr.filter((e)=>{
+   return e.includes("and")
+  })
+ return filt
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named oddValues that, given an array of integers as input, uses filter to return an array containing only the odd integers.
+Write a function named oddValues that, given an array of 
+integers as input, uses filter to return an array containing only the odd integers.
 
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  let uu = arr.filter((e)=>{
+    return e % 2 == 1
+  })
+  return uu
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named filterStringsWithVowels that, given an array of strings as input, uses filter to return an array with only words that contain vowels.
+Write a function named filterStringsWithVowels that, given an array of strings as input,
+ uses filter to return an array with only words that contain vowels.
 
 The callback function to filter should include or utilize a regular expression pattern.
 
@@ -58,19 +72,27 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let arr1 = []
+  arr.map((e)=>{
+    if (e.match(/(e|i|u|e|o)/g)){
+      arr1.push(e)
+    }
+  })
+  return arr1
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named notInFirstArray that, given two arrays as input, uses filter to return an array of all the elements in the second array that are not included in the first array.
+Write a function named notInFirstArray that, given two arrays as input, 
+uses filter to return an array of all the elements in the second array that are
+ not included in the first array.
 
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  return arr.filter(e => ! forbiddenValues.includes(e))
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -23,14 +23,15 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  let nar = []
-  arr.forEach((e)=>{
-   if (callback === lower) {
-     nar.push(lower(e));
-   }
-   else if (callback === upper) {nar.push(upper(e));}
-  })
- return nar
+  let nar = [];
+  arr.forEach((e) => {
+    if (callback === lower) {
+      nar.push(lower(e));
+    } else if (callback === upper) {
+      nar.push(upper(e));
+    }
+  });
+  return nar;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  // Solution code here...
+  arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,25 +56,34 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  // Solution code here...
+  let arr2 = arr.sort(function (a, b) {
+    return a - b;
+  });
+
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, largest to smallest.
+Write a function named sortBackwards that takes in an array of numbers and returns the same array, 
+with the numbers sorted, largest to smallest.
 
 HINT: Do it with a custom sort callback, not with using `.reverse()`. ;) 
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
+  arr.sort(function (b, a) {
+    return a - b;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted alphabetically.
+Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted 
+alphabetically.
 
 In this alphabetization, capital letters come before lower case letters.
 
@@ -81,13 +91,15 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  arr.sort();
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
+Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, 
+and sorts those objects by price, lowest to highest, returning the same array.
 
 Here is an example of the input:
 [
@@ -98,29 +110,40 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    return a.price - b.price;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named alphabetizeBetter that takes in an array of strings and returns the same array, with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
+Write a function named alphabetizeBetter that takes in an array of strings and returns the same array,
+ with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
 
-For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
+For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is 
+             ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
-
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  if (a.length == b.length) {
+    arr.sort((a, b) => {
+      return a - b;
+    });
+    return arr;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
-Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
+Write a function named sortByLength that takes in an array of strings and returns the same array, 
+with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
-
+//to be solved
 const sortByLength = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => (a.length < b.length ? -1 : 1));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -132,13 +155,19 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a.toString().length == b.toString().length) {
+      return a.toString().length + b.toString().length;
+    }
+  });
+  return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
-Write a function named sortPeople that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names. Do not worry about capitalization or first names.
+Write a function named sortPeople that takes in an array of Person objects, each of which has firstName, lastName,
+ and age properties, and sorts those people by their last names. Do not worry about capitalization or first names.
 ------------------------------------------------------------------------------------------------ */
 
 function Person(firstName, lastName, age) {
@@ -154,13 +183,22 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a.lastName == b.lastName) {
+      return 0;
+    } else if (a.lastName > b.lastName) {
+      return 1;
+    }
+    return -1;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
 
-Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
+Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName,
+ lastName, and age properties, and sorts those people by their last names.
 
 If two people share the same last name, alphabetize on their first name.
 
@@ -168,15 +206,26 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a.lastName > b.lastName) return 1;
+    if (a.lastName < b.lastName) return -1;
+    if (a.lastName == b.lastName && a.firstName > b.firstName) return 1;
+    if (a.lastName == b.lastName && a.firstName < b.firstName) return -1;
+    if (a.lastName == b.lastName && a.firstName == b.firstName && a.age < b.age)
+      return -1;
+    else 0;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 12 - Stretch Goal
 
-Write a function named sortMeetingsByDay that takes in an array of objects, each of which represents a meeting happening a particular day of the week, with a particular start time and end time.
+Write a function named sortMeetingsByDay that takes in an array of objects, each of which represents a meeting happening a
+ particular day of the week, with a particular start time and end time.
 
-Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
+Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a 
+particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
 ------------------------------------------------------------------------------------------------ */
 
 function Meeting(dayOfWeek, start, end) {
@@ -194,15 +243,25 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  const sorted = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  };
+  arr = arr.sort((a, b) => {
+    return sorted[a.dayOfWeek] - sorted[b.dayOfWeek];
+  });
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 13 - Stretch Goal
 
 This challenge should use the array of meetings from challenge 9, above.
 
-Sort the meetings in the order that they start. If two meetings start at the same time on the same day, the shorter meeting should come first.
+Sort the meetings in the order that they start. If two meetings start at the same time on the same day,
+ the shorter meeting should come first.
 
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */

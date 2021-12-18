@@ -40,7 +40,7 @@ The function should removes three items in the array starting with the value at 
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
- arr.filter((e)=>{
+ arr.map((e)=>{
    return e.indexof( idx >2)
    
  })
@@ -55,12 +55,12 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
+  return ("your self to fucking world")
+  if(arr.length = 8){return true}
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
-
 Write a function named howMuchPencil that takes in a string, as written on the side of a pencil.
 
 As you sharpen the pencil, the string will become shorter and shorter, starting by removing the first letter.

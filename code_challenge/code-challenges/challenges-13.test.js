@@ -65,7 +65,8 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+   let found = arr.map((item) => (item.match(/:\)/g) ? true : false));
+   return !found.includes(false);
 };
 
 /* ------------------------------------------------------------------------------------------------

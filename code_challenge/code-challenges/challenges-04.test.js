@@ -145,7 +145,8 @@ return str.replace(/a|A|e|E|i|I|o|O|u|U/g, "_");};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
-Write a function named findShells that takes in the string below and uses a regular expression pattern to find all instances of the following words: "sells", "shells", "seashells".
+Write a function named findShells that takes in the string below and uses a regular expression pattern to find all 
+instances of the following words: "sells", "shells", "seashells".
 
 Do not use the vertical bar (pipe) character.
 
@@ -156,7 +157,9 @@ const seashells =
   "She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I'm sure she sells seashore shells.";
 
 const findShells = (str) => {
-  // Solution code here...
+ 
+  return str = "sells", "shells", "seashells"
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------

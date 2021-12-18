@@ -3,7 +3,8 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function called sortStarWarsCharacters that sorts the characters in the starWarsPeople array by height from tallest to shortest.
+Write a function called sortStarWarsCharacters that sorts the characters in the starWarsPeople array
+ by height from tallest to shortest.
 ------------------------------------------------------------------------------------------------ */
 
 let starWarsPeople = [
@@ -25,17 +26,26 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  // Solution code here...
+  starWarsArr.sort((a,b)=>{
+    return (b.height - a.height)
+  })
+  return starWarsArr
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named removeThree that takes an index and an array. The function should removes three items in the array starting with the value at the index. 
+Write a function named removeThree that takes an index and an array. 
+The function should removes three items in the array starting with the value at the index. 
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  // Solution code here...
+ arr.filter((e)=>{
+   return e.indexof( idx >2)
+   
+ })
+  
+ return arr
 };
 
 /* ------------------------------------------------------------------------------------------------

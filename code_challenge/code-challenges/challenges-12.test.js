@@ -9,7 +9,12 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, num) => {
+    if (acc < num) {
+      acc = num;
+    }
+    return acc;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,7 +32,15 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  let max = 0;
+  matrix.map((ele) => {
+    ele.map((ele) => {
+      if (ele > max) {
+        max = ele;
+      }
+    });
+  });
+  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +58,11 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+   let total = 0;
+   matrix.map((item) => {
+     let s = item.map((e) => (total += e));
+   });
+   return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +101,13 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+   let newArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+   stores.map((item) => {
+     item.map((element, index) => {
+       newArr[index] += element;
+     });
+   });
+   return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +121,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArr = [];
+  data.map((item, i) => {
+    newArr[i] = { sales: data[i] + " cookies", time: hours[i] };
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -6,7 +6,8 @@ CHALLENGE 1 - Review
 
 Use the characters data below for all of the challenges except challenge 2 and 3.
 
-Write a function named sortByChildren that sorts the characters below by the number of children in each house (fewest to most). If a house has the same number of children, sort alphabetically by house name.
+Write a function named sortByChildren that sorts the characters below by the number of children in each house (fewest to most).
+ If a house has the same number of children, sort alphabetically by house name.
 
 ------------------------------------------------------------------------------------------------ */
 let characters = [
@@ -55,7 +56,12 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-	// Solution code here...
+	 return charArray.sort((a, b) => {
+     if (a.children.length == b.children.length) {
+       return a.house - b.house;
+     }
+     return a.children.length - b.children.length;
+   });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,7 +86,7 @@ const courseInfo = {
 };
 
 const getCourseKeys = (obj) => {
-	// Solution code here...
+	return Object.keys(obj)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +98,8 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-	// Solution code here...
+	if ( obj.includes(value)) return true;
+	else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +122,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-	// Solution code here...
+	let myObj = [];
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    let item = Object.keys(obj)[i] + ": " + Object.values(obj)[i];
+    myObj.push(item);
+  }
+  return myObj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,7 +138,11 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
 	let houses = [];
-	// Solution code here...
+  arr.forEach((ele) => {
+    houses.push(ele.house);
+  });
+
+  return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -142,8 +158,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-	// Solution code here...
-};
+	let houses = [];
+  for (let i = 0; i < arr.length; i++) {
+    houses.push(arr[i].house);
+  }
+  return houses;}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -154,7 +174,11 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-	// Solution code here...
+	let child = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character && arr[i].children.length) child = true;
+  }
+  return child;
 };
 
 /* ------------------------------------------------------------------------------------------------

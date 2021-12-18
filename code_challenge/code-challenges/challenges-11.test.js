@@ -12,7 +12,11 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
-  // Solution code here...
+   let newArr = [];
+   people.map((item) => {
+     newArr.push(`${item.firstName} ${item.lastName}`);
+   });
+   return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +28,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  if (pin.toString().match(/^\d{4}$/g)) return true;
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,7 +41,10 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
+  return word.toString().match(/^[A-Za-z]+$/i) &&
+    word.length.toString().match(/^[5-9]$|10/g)
+    ? true
+    : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,8 +56,9 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
-};
+   if(string.toString().match(/[A-Za-z]\d/g)) return true
+  return false};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -68,7 +77,12 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  if (email.match(/^(?!(.*\.){N+1})(.*\.){3}.*$/gim)) {
+    return false;
+  }
+  if (email.match(/[a-z]+([.]?[a-z])*@([a-z]+\.)*(com|org|net)\b/gi))
+    return true;
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,8 +107,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  return phoneNumber.toString().match(/^(\(\d{3}\)(\s\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}\s(\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}-(\d{7}|\d{3}\s\d{4}|\d{3}-\d{4})|\d{6}-\d{4}|\d{10}|\d{3}\s\d{7})$/g) ? true:false;
 };
+;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -106,7 +121,17 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = (elements) => {
-  // Solution code here...
+ let newArr = [];
+ newArr = elements.map((ele) => {
+   return ele.match(/<\/[^>]*>/gm);
+ });
+ let newArr2 = [];
+ newArr.map((ele) => {
+   ele.map((elem) => {
+     newArr2.push(elem.slice(1, elem.length - 1));
+   });
+ });
+ return newArr2;
 };
 
 /* ------------------------------------------------------------------------------------------------

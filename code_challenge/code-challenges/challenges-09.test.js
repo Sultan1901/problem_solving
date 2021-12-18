@@ -19,7 +19,11 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  // Solution code here...
+  let newArr = [];
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    newArr.push(`<li>${Object.keys(obj)[i]}: ${Object.values(obj)[i]}</li>`);
+  }
+  return newArr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,7 +34,10 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  // Solution code here...
+  return arr.reduce((a, b) => {
+    a += b;
+    return a;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +53,9 @@ Write a function named addPurchases that, given an array of objects as input, us
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, array) => {
+    return (acc += array.purchasePrice);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +67,9 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce((rcc, item, i, myArr) => {
+    return myArr.length;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +132,10 @@ let starWarsData = [
 ];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((characters, item) => {
+    characters.push(item.name);
+    return characters;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,7 +147,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  let string = str.split("");
+  return string.reduce((acc, item) => {
+    return item + acc;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,7 +203,12 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+   return arr.reduce((acc, curr) => {
+     if (curr.children) {
+       acc += curr.children.length;
+     }
+     return acc;
+   }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -198,7 +220,15 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+   let finalstate = arr.reduce(
+     (acc, curr) => {
+       acc.sum += curr;
+       acc.count += 1;
+       return acc;
+     },
+     { sum: 0, count: 0 }
+   );
+   return finalstate.sum / finalstate.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -219,7 +249,10 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+ return arr.reduce((acc, number) => {
+   if (isPrime(number)) acc++;
+   return acc;
+ }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -262,7 +295,10 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((acc, item) => {
+    if (item.stat.name === statName) acc = item;
+    return acc;
+  }, {});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -276,7 +312,12 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  return arr
+    .filter((item) => item.name.includes("a"))
+    .reduce((acc, ele) => {
+      if (ele.children) acc.push(...ele.children);
+      return acc;
+    }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
